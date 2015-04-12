@@ -13,4 +13,12 @@ public interface RecentHotelsProvider {
      * @return the URI as string
      */
     String fetchUri();
+
+    /**
+     * Retrieves recent hotels based on provided parameters.
+     *
+     * @param parameter the lookup parameters
+     * @return recent hotels result, never null
+     */
+    RecentHotels getRecentHotels(RecentHotelsParameter parameter);
 }
