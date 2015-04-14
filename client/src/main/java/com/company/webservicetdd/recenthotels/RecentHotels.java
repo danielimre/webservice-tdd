@@ -5,6 +5,9 @@ import static com.google.common.base.Preconditions.checkNotNull;
 import java.util.List;
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * Holds recent hotels.
  *
@@ -13,7 +16,8 @@ import java.util.Objects;
 public class RecentHotels {
     private final List<RecentHotel> hotels;
 
-    public RecentHotels(List<RecentHotel> hotels) {
+    @JsonCreator
+    public RecentHotels(@JsonProperty("hotels") List<RecentHotel> hotels) {
         this.hotels = checkNotNull(hotels);
     }
 

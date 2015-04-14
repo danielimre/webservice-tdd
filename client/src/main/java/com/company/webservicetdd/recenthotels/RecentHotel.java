@@ -2,6 +2,9 @@ package com.company.webservicetdd.recenthotels;
 
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * Holds hotel data specific to recent hotels.
  *
@@ -14,6 +17,12 @@ public final class RecentHotel {
     private RecentHotel(Builder builder) {
         id = builder.id;
         name = builder.name;
+    }
+
+    @JsonCreator
+    private RecentHotel(@JsonProperty("name") String name, @JsonProperty("id") String id) {
+        this.name = name;
+        this.id = id;
     }
 
     public String getId() {

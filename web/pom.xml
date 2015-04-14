@@ -46,6 +46,10 @@
   <dependencies>
     <dependency>
       <groupId>daniel.imre.training.tdd.webservice</groupId>
+      <artifactId>client</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>daniel.imre.training.tdd.webservice</groupId>
       <artifactId>service</artifactId>
     </dependency>
     <dependency>

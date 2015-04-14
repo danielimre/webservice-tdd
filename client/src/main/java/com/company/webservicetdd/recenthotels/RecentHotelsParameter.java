@@ -5,6 +5,9 @@ import static com.google.common.base.Preconditions.checkNotNull;
 import java.util.Locale;
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * Parameters of recent hotel API.
  *
@@ -19,6 +22,13 @@ public final class RecentHotelsParameter {
         userId = checkNotNull(builder.userId);
         locale = builder.locale;
         limit = builder.limit;
+    }
+
+    @JsonCreator
+    public RecentHotelsParameter(@JsonProperty("userId") String userId, @JsonProperty("locale") Locale locale, @JsonProperty("limit") int limit) {
+        this.userId = userId;
+        this.locale = locale;
+        this.limit = limit;
     }
 
     public String getUserId() {
