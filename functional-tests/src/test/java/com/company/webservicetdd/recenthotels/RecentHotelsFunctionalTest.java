@@ -31,12 +31,21 @@ public class RecentHotelsFunctionalTest extends FunctionalTestBase {
     }
 
     @Test
-    public void shouldReturnTwoRecentHotelsForUserLocalized() {
+    public void shouldReturnTwoLocalizedRecentHotelsForSomeUser() {
         RecentHotelsParameter parameter = RecentHotelsParameter.builder().forUser("someuserid").withLocale(Locale.GERMANY).limit(2).build();
 
         RecentHotels result = client.getRecentHotels(parameter);
 
-        assertThat(result, is(equalTo(new RecentHotels(Arrays.asList(recentHotel("hotelid1", "Hotel 1 name"), recentHotel("hotelid3", "Hotel 3 name"))))));
+        assertThat(result, is(equalTo(new RecentHotels(Arrays.asList(recentHotel("1", "Hotel 1 name"), recentHotel("3", "Hotel 3 name"))))));
+    }
+
+    @Test
+    public void shouldReturnThreeLocalizedRecentHotelsForOtherUser() {
+        RecentHotelsParameter parameter = RecentHotelsParameter.builder().forUser("otheruserid").withLocale(Locale.UK).limit(4).build();
+
+        RecentHotels result = client.getRecentHotels(parameter);
+
+        assertThat(result, is(equalTo(new RecentHotels(Arrays.asList(recentHotel("2", "Hotel 2"), recentHotel("4", "Hotel 4"), recentHotel("6", "Hotel 6"))))));
     }
 
     private RecentHotel recentHotel(String id, String name) {
