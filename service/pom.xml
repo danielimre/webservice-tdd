@@ -14,5 +14,9 @@
     <main.basedir>${project.parent.basedir}</main.basedir>
   </properties>
   <dependencies>
+    <dependency>
+      <groupId>daniel.imre.training.tdd.webservice</groupId>
+      <artifactId>client</artifactId>
+    </dependency>
   </dependencies>
 </project>
