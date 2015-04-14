@@ -16,6 +16,6 @@ import com.company.webservicetdd.recenthotels.web.RecentHotelsController;
 public class RecentHotelsConfiguration {
     @Bean
     public RecentHotelsController recentHotelsController() {
-        return new RecentHotelsController();
+        return new RecentHotelsController(null);
     }
 }
