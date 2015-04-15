@@ -16,7 +16,16 @@
     <cargo.server.port>9876</cargo.server.port>
     <cargo.rmi.port>9875</cargo.rmi.port>
     <cargo.ajp.port>9874</cargo.ajp.port>
+    <skip.cargo.run>true</skip.cargo.run>
   </properties>
+  <profiles>
+    <profile>
+      <id>runapp</id>
+      <properties>
+        <skip.cargo.run>false</skip.cargo.run>
+      </properties>
+    </profile>
+  </profiles>
   <build>
     <plugins>
       <plugin>
@@ -75,6 +84,16 @@
             </configuration>
             <goals>
               <goal>stop</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>cargo-run</id>
+            <phase>verify</phase>
+            <configuration>
+              <skip>${skip.cargo.run}</skip>
+            </configuration>
+            <goals>
+              <goal>run</goal>
             </goals>
           </execution>
         </executions>
